@@ -8,6 +8,7 @@ Main();
 
 void Main()
 {
+    Console.WriteLine("The top 10 words in the short story 'Lovecraft'");
     string text = System.IO.File.ReadAllText(@"C:\Users\frank\OneDrive\Desktop\NightOcean.txt");
     
     text = Regex.Replace(text, @"[^\w\d\s]", "");
@@ -65,7 +66,7 @@ void DisplaySortedFrequencies(Dictionary<string, int> frequencies, Dictionary<st
             }
             if(cases.TryGetValue(pair.Key, out int countlower))
             {
-                var firstline = countfirstupper > 0 ? ", " : "";
+                string firstline = countfirstupper > 0 ? ", " : "";
                 Console.Write($"{firstline}{pair.Key}: {countlower}");
             }
             if(cases.TryGetValue(pair.Key.ToUpper(), out int count) && pair.Key.Length > 1)
